@@ -1,0 +1,422 @@
+1. fix.html
+    1.error one
+    <!DOCTYPE html>
+    <html>
+    <body>
+    <script>
+    alert( “I’m JavaScript!’);  //here double quotes is missing
+    </script>
+    Whats the error in this ?
+    </body>
+    </html>
+
+    1.correct  add double quotes at end of alert
+    <!DOCTYPE html>
+    <html>
+    <body>
+    <script>
+    alert( "I'm JavaScript!'"); // closed the double quotes
+    </script>
+    Whats the error in this ?
+    </body>
+    </html>
+
+
+
+2.Find the culprit and invoke the alert
+    Error one
+        html
+        <!DOCTYPE html>
+        <html>
+        <body>
+        <script src="script.js"></script>
+        </body>
+        </html>
+
+        js
+        alert("I'm invoked!");
+
+    ans: no error in the code
+
+
+
+3. Explain the below how it works
+    explain.html
+        <!DOCTYPE html>
+        <html>
+        <body>
+        <script src=”script.js”></script>
+        </body>
+        </html>
+
+    script.js
+        alert("I'm JavaScript!");
+        alert('Hello') // this line is not having semicolon
+        alert(`Wor
+        ld`)
+        alert(3 +
+        1
+        + 2); // this is multiple line code and its working
+
+    ans: 1. alert method diplays string on the screen by promting a alert box
+         2. first alert is enclosed in double quotes and the string is displayed
+         3. second alert is enclosed in single quotes and and displayed as string
+         4. third alert are enclosed in string literals so a new line character is inserted after
+            wor so wor and id displayed in different lines
+         5. fourth aleart the sum is computed first and then displayed on screen
+        
+
+4. Fix the below to alert Guvi geek
+    Error
+        fix.html
+            <!DOCTYPE html>
+            <html>
+            <body>
+            <script src=”script.js”></script>
+            </body>
+            </html>
+
+        script.js
+            let admin=9, fname=10.5; 
+            fname = "Guvi";
+            lname = "geek"
+            admin = fname+lname;  
+            alert( admin ); // "Guvi geek"
+    
+    correct  add space between fname and lname
+        script.js
+            let admin=9, fname=10.5; 
+            fname = "Guvi";
+            lname = "geek"
+            admin = fname+" "+lname; //added space between the first name and last name
+            alert( admin ); // "Guvi geek"
+
+
+
+5.Fix the below to alert hello Guvi geek
+    Error
+        fix.html
+            <!DOCTYPE html>
+            <html>
+            <body>
+            <script src=”script.js”></script>
+            </body>
+            </html>
+
+        script.js
+            let fname=10.5; 
+            fname = "Guvi";
+            lname = "geek"
+            let name = fname+lname;
+            alert( 'hello ${name}' );
+
+    Correct there should be space between fname and lname and alert string should be enclosed in string literals instead of single quotes
+        script.js
+            let fname=10.5; 
+            fname = "Guvi";
+            lname = "geek"
+            let name = fname+" "+lname;
+            alert( `hello ${name}` );
+
+
+
+6. Fix the below to alert sum of two numbers
+    Error
+        fix.html
+            <!DOCTYPE html>
+            <html>
+            <body>
+            <script src=”script.js”></script>
+            </body>
+            </html>
+
+        script.js
+            let a = prompt("First number?");
+            let b = prompt("Second number?");
+            alert(a + b);
+
+    Correct: since promt take input as a string they should be converted to number
+        scritp.js
+            let a = parseInt(promt("First number?"));  // convert string to number
+            let b = parseInt(promt("Second number?")); //convert string to number
+            alert(a+b);
+
+
+
+
+7. If you run the below scritpt you will get “Code is Blasted”
+
+Explain Why the Code is blasted and how to diffuse it and get “Diffused”.
+
+
+    fix.html
+        <!DOCTYPE html>
+        <html>
+        <body>
+        <script src=”script.js”></script>
+        </body>
+        </html>
+
+    script.js
+        var a = "2" > "12";
+        //Don't touch below this
+        if (a) {
+        console.log("Code is Blasted")
+        }
+        else
+        {
+        console.log("Diffused") 
+        }
+
+    ans: in script.js a is true that is why if condition is executed
+        a gets true because "2" and "12" are string in lexcicographically 1 comes before 2 so "2" > "12" results in true
+        fix : var a = 2 > 12 now 2 and 12 are numbers so 2 > 12 is false so Diffused will be printed
+
+
+8. How to get the success in console.
+
+    script.js
+        let a = prompt("Enter a number?");
+        //Don't modify any code below this
+        if (a) {
+        console.log( 'OMG it works for any number inc 0' );
+        }
+        else
+        {
+        console.log( "Success" );
+        }
+
+    ans: only empty stirng is falsy value , if user enter any number it will be considered as string and non empty string will always be true, to get success when user enters '0' a must be of type number
+    fix: let a = parseInt(promt("Enter a number?"));
+    so now when user enter 0 success will be printed in console
+
+
+9. How to get the correct score in console.
+
+    script.js
+        let value = prompt('How many runs you scored in this ball');
+        if (value === 4) {
+            console.log("You hit a Four");
+        } else if (value === 6) {
+            console.log("You hit a Six");
+        } else {
+            console.log("I couldn't figure out");
+        }
+    
+    ans: promt take input as string it should be converted to number
+    fix: let value = parseInt(prompt('How many runs you scored in this ball'));
+    fix: use '==' instead of '===' and then also the problem will be solved
+
+
+10. Fix the code to welcome the Employee
+    script.js
+        let login = 'Employee';
+        let message = (login == 'Employee') ? :
+        (login == 'Director') ? 'Greetings' :
+        (login == '') ? 'No login' :
+        '';
+        console.log(message);
+
+    ans: a welcome string should be assigned to message if login is Employee
+    fix:
+        let login = 'Employee';
+        let message = (login == 'Employee') ? "welcom": //now welcome will be assigned to message 
+        (login == 'Director') ? 'Greetings' :
+        (login == '') ? 'No login' :
+        '';
+        console.log(message);
+
+
+
+11. Fix the code to welcome the boss
+
+    script.js
+        // You cant change the value of the msg
+        let message;
+        if (null || 2 || undefined )
+        {
+        let message = "welcome boss";
+        }
+        else
+        {
+        let message = "Go away";
+        }
+        console.log(message);
+    
+    ans: error is message is again declared inside if else so inner message variable will used inside if
+    fix: remove let keyword in if else block
+        // You cant change the value of the msg
+        let message;
+        if (null || 2 || undefined )
+        {
+            message = "welcome boss";  //let is removed 
+        }
+        else
+        {
+            message = "Go away"; //let is removed
+        }
+        console.log(message);
+
+
+12. Fix the code to welcome the boss
+    script.js
+        let message;
+        let lock = 2;
+        //Dont change any code below this 
+        if (null || lock || undefined )
+        {
+        message = "Go away";
+        }
+        else
+        {
+        message = "welcome";
+        }
+        console.log(message);
+
+    ans: since lock is 2 if condition will evaluate to true to get false assign lock 0
+    fix:
+        let message;
+        let lock = 2;
+        lock = 0; // assigned lock 0 so else will be executed
+        //Dont change any code below this 
+        if (null || lock || undefined )
+        {
+        message = "Go away";
+        }
+        else
+        {
+        message = "welcome";
+        }
+        console.log(message);
+        
+
+
+13. Fix the code to welcome the boss
+    scritp.js
+        let message;
+        let lock = 2;
+        //Dont change any code below this
+        if (lock && " " || undefined )
+        {
+        message = "Go away";
+        }
+        else
+        {
+        message = "welcome";
+        }
+        console.log(message);
+    ans: assign the lock value to 0
+    
+
+
+14. Change the code to print
+
+3
+
+2
+
+1
+
+
+    scritp.js
+        //You can change only 2 characters
+        let i = 3;
+        while (i) {
+        console.log( --i );
+        }
+    ans: use i--(post decrement) instead of --i(pre decrement)
+    //You can change only 2 characters
+    let i = 3;
+    while (i) {
+    console.log( i-- );
+    }
+
+
+15.Change the code to print 1 to 10 in 4 lines
+    script.js
+        let num = 1
+        console.log(num)
+        num += 1
+        console.log(num)
+        num += 1
+        console.log(num)
+        num += 1
+        console.log(num)
+        num += 1
+        console.log(num)
+        num += 1
+        console.log(num)
+        num += 1
+        console.log(num)
+        num += 1
+        console.log(num)
+        num += 1
+        console.log(num)
+        num += 1
+        console.log(num)
+
+    ans:
+        let num = 1;
+        while(num<=10) {
+            console.log(num++);
+        }
+
+
+16. Change the code to print even numbers
+    script.js
+        //You are allowed to modify only one character 
+        for (let num = 2; num <= 20; num += 1) {
+        console.log(num)
+        }
+    
+    ans: increment num by 2 instead of 1
+        //You are allowed to modify only one character 
+        for (let num = 2; num <= 20; num += 2) {
+        console.log(num)
+        }
+
+
+17. Change the code to print all the gifts
+    script.js
+        let gifts = ["teddy bear", "drone", "doll"];
+        for (let i = 0; i < 3; i++) {
+        console.log('Wrapped ${'gifts[i]'} and added a bow!');
+        }
+
+    ans: use string literal to wrap entire string and remove single quotes inside ${'gifts[i]'}
+        let gifts = ["teddy bear", "drone", "doll"];
+        for (let i = 0; i < 3; i++) {
+        console.log(`Wrapped ${gifts[i]} and added a bow!`);
+        }
+
+
+
+18. Fix the code to disarm the bomb.
+    script.js
+        let countdown = 100;
+        while (countdown > 0) {
+        countdown--;
+        if(countdown == 0)
+        {
+        console.log("bomb triggered");
+        }
+        }
+    fix: many are possible
+        1.  while(countdown > 1) //this would be better since countdown stops at one
+        2.  while(countdown >= 0)
+
+
+19. Whats the msg printed and why?
+    script.js
+        var lemein = “0”;
+        var lemeout = 0;
+        var msg = “”;
+        if (lemein) {
+        msg += “hi”;
+        }
+        if (lemeout) {
+        msg += ‘Hello’;
+        }
+        console.log(msg);
+
+    ans: 'hi' is printed because string zero("0") is true value but number 0 is false so only hi will be printed
